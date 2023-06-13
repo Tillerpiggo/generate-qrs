@@ -1,0 +1,47 @@
+<!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>-->
+<!--<!--{% extends 'bootstrap/base.html' %}'--->
+<!--<!---->
+{% block content %}
+<!--<!---->
+<!--<meta http-equiv="refresh" content="2" >-->
+<header>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</header>
+<body>
+    <div class="top-header">
+        <img class="logo" src="{{ url_for('static', filename='images/RP_wordblue.png') }}">
+        <p class="right-item">Created by Tyler Gee</p>
+    </div>
+    <div class="body-container">
+        <h1>Generate a QR spreadsheet.</h1>
+        <form action="{{ url_for('download') }}" method="POST">
+            <div class="dropdowns">
+                <div class="setting">
+                    <p class="setting-text">Num Codes</p>
+                    <input value="132" type="text" name="num_codes" class="dropdown">
+<!--                    <select name="num_codes" class="dropdown">-->
+<!--                        <option value="2">132 QRs / 2 pages-->
+<!--                        <option value="4">264 QRs / 4 pages-->
+<!--                        <option value="8">528 QRs / 8 pages-->
+<!--                    </select>-->
+                </div>
+                <div class="setting">
+                    <p class="setting-text">File Prefix</p>
+                    <input value="NYAC" type="text" name="name" class="dropdown">
+<!--                    <select name="name" class="dropdown">-->
+<!--                        <option value="random">Random-->
+<!--                        <option value="nyac">NYAC-->
+<!--                        <option value="nicol">Nicol-->
+<!--                    </select>-->
+                </div>
+            </div>
+            <button type="submit"><span><img class="icon" src="{{ url_for('static', filename='images/downloadIcon.png') }}"></span>Generate and Download</button>
+        </form>
+    </div>
+</body>
+            
+            
+{% endblock %}
